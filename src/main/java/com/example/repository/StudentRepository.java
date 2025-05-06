@@ -1,15 +1,14 @@
 package com.example.repository;
 
-import com.example.entity.Courses;
 import com.example.entity.Student;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Repository
@@ -61,7 +60,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     //QUERIES:
 
     //@Query(value = "SELECT * FROM student WHERE ID = :id", nativeQuery = true)
-    @Query(value = "SELECT s FROM Student s WHERE s.id = :id ")
+   /* @Query(value = "SELECT s FROM Student s WHERE s.id = :id ")
     Optional<Student>getStudentById(@Param("id") Integer id);
 
     //@Query(value = "SELECT name FROM student WHERE id = :id ", nativeQuery = true)
@@ -72,6 +71,11 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     @Query(value = "SELECT id, name, mobile, age FROM student WHERE id = :id", nativeQuery = true)
     //@Query(value = "SELECT s.id, s.name, s.age FROM Student s WHERE s.id = :id")
     Optional<Object[]>getStudDetailsById(@Param("id") Integer id);
+
+    */
+
+    @Query(value = "select s from Student s")
+    Page<Student> getAllStudentPaged(Pageable pageable);
 
 
 }

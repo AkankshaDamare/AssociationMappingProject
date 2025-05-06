@@ -14,7 +14,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 
-@Component
+//@Component
 public class TestRunner implements CommandLineRunner {
 
     @Autowired
