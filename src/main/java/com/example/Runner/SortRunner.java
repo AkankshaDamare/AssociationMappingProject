@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Objects;
 
-@Component
+//@Component
 @RequiredArgsConstructor
 public class SortRunner implements CommandLineRunner {
 
